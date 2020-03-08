@@ -60,7 +60,8 @@ int main(int argc, char *argv[])
     serv_addr.sin_port = htons(portno);     //host to network short
 
     //connect to server
-     printf("Ankit : ");
+    string name = "Me"; //chnge it to ur nme
+     printf("%s : ", name);
     if(connect(sockfd , (struct sockaddr *)&serv_addr , sizeof(serv_addr)) <0)
         error("Connection Failed");
 
@@ -85,7 +86,7 @@ int main(int argc, char *argv[])
         if(i == 0)
             break;
 
-        printf("Ankit : ");
+       printf("%s : ", name);
     }
 
     close(sockfd);          //closing the file discriptor
