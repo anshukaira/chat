@@ -72,13 +72,14 @@ int main(int argc, char *argv[])
     if(newsockfd < 0)
         error("Error on accepting");
 
+     string name = "Client";
     while(1)
     {
         bzero(buffer , 255);    //removes everything in buffer
         n = read(newsockfd , buffer ,  255);    //reads the buffer through socket
         if(n < 0)
             error("ERROR ON READING");
-        printf("Ankit : %sAnshu : ", buffer);       //if not found any error then we will print the client nd print the data we got through reading 
+        printf("%s : %sAnshu : ",name, buffer);       //if not found any error then we will print the client nd print the data we got through reading 
         bzero(buffer, 255);     //again deletes everything
         fgets(buffer , 255 , stdin);    //fn reads bytes from stram which we want to send
 
