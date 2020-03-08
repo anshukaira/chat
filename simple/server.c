@@ -9,13 +9,19 @@
 //client server model -- 
 /*
         server              client
-         |                   |
+          |                     |
         socket()             socket()
-        bind()              
-        listen()
+          |                     |
+        bind()                  |   
+          |                     |
+        listen()                |
+          |                     |
         accept()  <------    connection()
+          |                     |
         read()    <------     write()
+          |                     |
         write()   ------>      read()
+          |                     |
         close()   <----->     close()
 */
 void error(const char *msg) 
@@ -72,7 +78,7 @@ int main(int argc, char *argv[])
     if(newsockfd < 0)
         error("Error on accepting");
 
-     string name = "Client";
+     char name[20] = "Someone";
     while(1)
     {
         bzero(buffer , 255);    //removes everything in buffer
